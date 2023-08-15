@@ -31,9 +31,8 @@ function CartItem({ index, locale, currency }: Props) {
 
     const { totalAmount, subtotalAmount, compareAtAmountPerQuantity } = cost;
     const total = subtotalAmount.amount;
-    const listPrice = compareAtAmountPerQuantity.amount;
-
-    const subTotal = listPrice * quantity;
+    const listPrice = compareAtAmountPerQuantity?.amount;
+    const subTotal = listPrice ? listPrice * quantity : undefined;
     const { image, product, title, id } = merchandise;
 
     const isGift = totalAmount.amount < 0.01;
@@ -88,9 +87,11 @@ function CartItem({ index, locale, currency }: Props) {
             </Button>
           </div>
           <div class="flex items-center gap-2">
-            <span class="line-through text-base-300 text-sm">
-              {formatPrice(subTotal, currency, locale)}
-            </span>
+            {subTotal && (
+              <span class="line-through text-base-300 text-sm">
+                {formatPrice(subTotal, currency, locale)}
+              </span>
+            )}
             <span class="text-sm text-secondary">
               {isGift ? "Grátis" : formatPrice(total, currency, locale)}
             </span>
