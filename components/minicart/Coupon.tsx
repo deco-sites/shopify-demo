@@ -8,7 +8,7 @@ function Coupon() {
   const ref = useRef<HTMLInputElement>(null);
   const displayInput = useSignal(false);
   const coupon = cart.value?.cart?.discountCodes &&
-    cart.value?.cart?.discountCodes[0]?.code || undefined;
+      cart.value?.cart?.discountCodes[0]?.code || undefined;
 
   const toggleInput = () => {
     displayInput.value = !displayInput.value;
