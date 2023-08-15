@@ -69,14 +69,8 @@ function Cart() {
 
             {/* Cart Footer */}
             <footer class="w-full">
-              {/* Subtotal */}
+              {/* Coupon */}
               <div class="border-t border-base-200 py-2 flex flex-col">
-                <div class="w-full flex justify-between px-4 text-sm">
-                  <span>Subtotal</span>
-                  <span class="px-4">
-                    {total ? formatPrice(total, currencyCode!, locale) : ""}
-                  </span>
-                </div>
                 <Coupon />
               </div>
 
