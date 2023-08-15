@@ -105,16 +105,14 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
         {availability === "https://schema.org/InStock"
           ? (
             <>
-              {seller && (
-                <AddToCartButton
-                  skuId={productID}
-                  sellerId={seller}
-                  price={price ?? 0}
-                  discount={price && listPrice ? listPrice - price : 0}
-                  name={product.name ?? ""}
-                  productGroupId={product.isVariantOf?.productGroupID ?? ""}
-                />
-              )}
+              <AddToCartButton
+                skuId={productID}
+                sellerId={"1"}
+                price={price ?? 0}
+                discount={price && listPrice ? listPrice - price : 0}
+                name={product.name ?? ""}
+                productGroupId={product.isVariantOf?.productGroupID ?? ""}
+              />
               <Component
                 variant="full"
                 productGroupID={isVariantOf?.productGroupID}
